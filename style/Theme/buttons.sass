@@ -1,0 +1,65 @@
+
+@import colors.vars
+
+.button
+  border-radius: 2px
+  height: 2.5em
+  line-height: 2.5em
+  min-width: 7em
+  text-align: center
+  font-size: 1em
+  border: none
+  outline: none
+  cursor: pointer
+
+  &--primary
+    color: #FEFEFC
+    background-color: $primary-color
+    box-shadow: 0 0.2em 0.5em rgba($primary-color, 0.3)
+
+    &:hover
+      box-shadow: 0 0.3em 0.6em rgba($primary-color, 0.4)
+
+    &:active
+      background-color: $primary-light
+      box-shadow: 0 0.4em 0.7em rgba($primary-color, 0.5)
+
+  &--secondory
+    color: #FEFEFC
+    background-color: $secondory-color
+    box-shadow: 0 0.2em 0.5em rgba($secondory-color, 0.3)
+
+    &:hover
+      box-shadow: 0 0.3em 0.6em rgba($secondory-color, 0.4)
+
+    &:active
+      background-color: $secondory-light
+      box-shadow: 0 0.4em 0.7em rgba($secondory-color, 0.5)
+
+$flat-bg: rgba(33, 33, 33, 0)
+$flat-bg-hover: rgba(33, 33, 33, 0.14)
+$flat-bg-active: rgba(33, 33, 33, 0.28)
+
+.flat-button
+  border-radius: 2px
+  height: 2.5em
+  line-height: 2.5em
+  min-width: 7em
+  text-align: center
+  font-size: 1em
+  border: none
+  outline: none
+  cursor: pointer
+  background-color: transparent
+
+  &:hover
+    background-color: rgba(33, 33, 33, 0.14)
+
+  &:active
+    background-color: rgba(33, 33, 33, 0.28)
+
+  &--primary
+    color: $primary-color
+
+  &--secondory
+    color: $secondory-color

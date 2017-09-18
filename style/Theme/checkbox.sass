@@ -1,0 +1,84 @@
+
+$checkbox-length: 2.5em
+$checkbox-element-length: $checkbox-length * 0.45
+
+$checkbox-bg: rgba(33, 33, 33, 0)
+$checkbox-bg-hover: rgba(33, 33, 33, 0.14)
+$checkbox-bg-active: rgba(33, 33, 33, 0.28)
+
+.checkbox
+  display: inline-block
+  position: relative
+  box-sizing: border-box
+  width: $checkbox-length
+  height: $checkbox-length
+  border-radius: 50%
+  background-color: $checkbox-bg
+  transition: background-color 250ms linear
+
+  &--checked
+    cursor: pointer
+
+    &:hover
+      background-color: $checkbox-bg-hover
+
+    &:active
+      background-color: $checkbox-bg-active
+
+  &--unchecked
+    cursor: pointer
+
+    &:hover
+      background-color: $checkbox-bg-hover
+
+    &:active
+      background-color: $checkbox-bg-active
+
+  &--dischecked
+    cursor: not-allowed
+
+    &:hover
+      background-color: $checkbox-bg-hover
+
+  &--disunchecked
+    cursor: not-allowed
+
+    &:hover
+      background-color: $checkbox-bg-hover
+
+  &__view
+    position: absolute
+    top: ($checkbox-length - $checkbox-element-length) / 2
+    left: ($checkbox-length - $checkbox-element-length) / 2
+    box-sizing: border-box
+    width: $checkbox-element-length
+    height: $checkbox-element-length
+    background-size: cover
+
+    &--checked
+      cursor: pointer
+      background-image: url(/images/check-on.png)
+
+    &--unchecked
+      cursor: pointer
+      background-image: url(/images/check-off.png)
+
+    &--dischecked
+      cursor: not-allowed
+      background-image: url(/images/check-disabled-on.png)
+
+    &--disunchecked
+      cursor: not-allowed
+      background-image: url(/images/check-disabled-off.png)
+
+  // &__input
+  //   position: absolute
+  //   top: ($checkbox-length - $checkbox-element-length) / 2
+  //   left: ($checkbox-length - $checkbox-element-length) / 2
+  //   box-sizing: border-box
+  //   width: $checkbox-element-length
+  //   height: $checkbox-element-length
+  //   margin: 0
+  //   padding: 0
+  //   border: none
+  //   opacity: 0

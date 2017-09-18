@@ -1,0 +1,106 @@
+body
+  background-color: white
+  margin: 0
+  padding: 0
+
+.clicker
+  margin: 1em
+
+.btn
+  margin: 1em
+
+.info
+  margin: 1em
+
+@keyframes hide-view
+  from
+    margin-left: 0
+  to
+    margin-left: -100%
+
+@keyframes show-view
+  from
+    margin-left: 100%
+  to
+    margin-left: 0
+
+.red
+  background-color: #e27571
+  margin-top: 6em
+  position: fixed
+  width: 100%
+  height: 100%
+  margin-left: 0
+  z-index: 1
+
+  &.active
+    z-index: 100
+
+  &.hide
+    animation: hide-view 200ms
+
+  &.hidden
+    display: none
+
+  &.show
+    animation: show-view 200ms
+
+  &.shown
+    display: block
+
+.green
+  background-color: #97d691
+  margin-top: 6em
+  position: fixed
+  width: 100%
+  height: 100%
+  margin-left: 0
+  z-index: 1
+
+  &.active
+    z-index: 100
+
+  &.hide
+    animation: hide-view 200ms
+
+  &.hidden
+    display: none
+
+  &.show
+    animation: show-view 200ms
+
+  &.shown
+    display: block
+
+.blue
+  background-color: #8a8ad1
+  margin-top: 6em
+  position: fixed
+  width: 100%
+  height: 100%
+  margin-left: 0
+  z-index: 1
+
+  &.active
+    z-index: 100
+
+  &.hide
+    animation: hide-view 200ms
+
+  &.hidden
+    display: none
+
+  &.show
+    animation: show-view 200ms
+
+  &.shown
+    display: block
+
+.top
+  background-color: #FFFDD0
+  position: fixed
+  height: 6em
+  width: 100%
+  text-align: center
+  padding-top: 2em
+  box-sizing: border-box

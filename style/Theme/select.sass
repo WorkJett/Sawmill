@@ -1,0 +1,163 @@
+
+@import typography.vars
+@import colors.vars
+@import animation.vars
+@import animation
+
+@keyframes select-label-open
+  from
+    top: 0.75em
+    font-size: $font-size-one
+    color: $text-color-disabled
+    +animation-acceleration-curve
+  to
+    top: 0.125em
+    font-size: $font-size-mone
+    color: $text-color-secondary
+
+@keyframes select-label-closed
+  from
+    top: 0.125em
+    font-size: $font-size-mone
+    color: $text-color-secondary
+    +animation-acceleration-curve
+  to
+    top: 0.75em
+    font-size: $font-size-one
+    color: $text-color-disabled
+
+@keyframes select-underline-open
+  from
+    color: $primary-light
+    +animation-acceleration-curve
+  to
+    color: $secondory-color
+
+@keyframes select-underline-closed
+  from
+    color: $secondory-color
+    +animation-acceleration-curve
+  to
+    color: $primary-light
+
+.select
+  position: relative
+  height: 3em
+  min-width: 8em
+  border: none
+  background: transparent
+
+  &__label
+    position: absolute
+    width: 100%
+    left: 0
+    top: 1.25em
+    font-size: 1em
+    color: $text-color-disabled
+
+    &--empty
+      top: 1.25em
+      font-size: $font-size-one
+      color: $text-color-disabled
+      animation: select-label-closed ($leaving-duration / 2)
+
+    &--text
+      top: 0.25em
+      font-size: $font-size-mone
+      color: $text-color-secondary
+      animation: select-label-open ($enter-duration / 2)
+
+    &--open
+      z-index: 81
+
+  &__view
+    position: absolute
+    height: 1.2em
+    line-height: 1.2em
+    top: 1.5em
+    left: 0
+    width: 100%
+    color: $text-color-primary
+    background: transparent
+    outline: none
+    border: none
+    font-size: 1em
+    cursor: pointer
+
+    &--open
+      z-index: 81
+
+  &__underline
+    background-color: $primary-light
+    width: 100%
+    position: absolute
+    height: 2px
+    bottom: 0
+    left: 0
+
+    &--open
+      background-color: $secondory-color
+      animation: underline-open $enter-duration
+      z-index: 81
+
+    &--closed
+      background-color: $primary-light
+      animation: underline-closed $leaving-duration
+
+  &__indicator
+    display: inline-block
+    position: absolute
+    width: 1.2em
+    height: 1.2em
+    top: 1.5em
+    right: 0.25em
+    background-size: cover
+    cursor: pointer
+
+    &--open
+      background-image: url(/images/expand-less.png)
+      z-index: 81
+
+    &--closed
+      background-image: url(/images/expand-more.png)
+
+  &__popup
+    display: none
+    background-color: $wnd-bg-content-color
+    height: 0
+    width: calc(100% + 1em)
+    position: absolute
+    top: 0
+    left: -0.5em
+    overflow: hidden
+
+    &--open
+      z-index: 80
+      display: block
+      height: auto
+      box-shadow: 0 0 0.5em $shadow-color
+
+  &__items
+    margin: 3.5em 0.5em 0.5em 0.5em
+    max-height: 18em
+    overflow: auto
+
+  &__item
+    border-radius: 2px
+    height: 2.5em
+    line-height: 2.5em
+    min-width: 7em
+    text-align: left
+    font-size: 1em
+    border: none
+    outline: none
+    cursor: pointer
+    background-color: transparent
+    padding-left: 1em
+    color: $text-color-secondary
+
+    &:hover
+      background-color: rgba(33, 33, 33, 0.14)
+
+    &--selected
+      color: $primary-color

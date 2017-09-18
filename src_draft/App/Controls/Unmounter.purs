@@ -1,0 +1,77 @@
+module App.Controls.Unmounter where
+--   ( Data
+--   , View
+--   , Store
+--   , State
+--   , default
+--   , build
+--   , release
+--   ) where
+--
+-- import Prelude (Unit, unit, (>>=), pure, bind, (+))
+-- import Control.Monad.Eff (Eff)
+--
+-- import Sawmill.Store.Effect (St)
+-- import Sawmill.Store.State as S
+--
+-- import Sawmill.DOM.Effect (DOM)
+-- import Sawmill.DOM.HTML as D
+--
+-- type Data =
+--   { click :: Unit
+--   }
+--
+-- type View =
+--   { element :: D.Element
+--   , onclick :: forall eff. Event -> Eff (st :: St, dom :: DOM | eff) Unit
+--   , title :: String
+--   , klasses :: Array String
+--   }
+--
+-- type Store =
+--   { data :: Data
+--   , view :: View
+--   }
+--
+-- type State = S.State Store
+--
+-- title :: String
+-- title = "Unmounter"
+--
+-- klasses :: String
+-- klasses = "btn unmounter"
+--
+-- buildClickHandler :: forall eff. State -> Event -> Eff (st :: St | eff) Unit
+-- buildClickHandler state = \event -> do
+--   store <- S.get state
+--   _ <- S.set state (store { data { click = unit }})
+--   pure unit
+--
+-- default :: forall eff. Eff (st :: St, dom :: DOM | eff) State
+-- default = do
+--   element <- button
+--   initState <- S.build
+--     { data:
+--       { amount: 0
+--       }
+--     , view:
+--       { element: element
+--       , onclick: \event -> do pure unit
+--       , title: title
+--       , klasses: klasses
+--       }
+--     }
+--   init <- S.get initState
+--   S.set initState (init { view { onclick: (buildClickHandler initState)}})
+--
+-- build :: forall eff. State -> Eff (st :: St, dom :: DOM | eff) Element
+-- build state = do
+--   store <- S.get state
+--   _ <- click store.view.element store.view.onclick
+--   _ <- text store.view.title store.view.element
+--   klass store.view.klasses store.view.element
+--
+-- release :: forall eff. Element -> State -> Eff (st :: St, dom :: DOM | eff) Element
+-- release state = do
+--   store <- S.get state
+--   unclick store.view.element store.view.onclick

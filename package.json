@@ -1,0 +1,24 @@
+{
+  "name": "sawmill",
+  "version": "1.0.0",
+  "description": "purescript sawmill lib",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "server": "pm2 start ./server.js --name sawmill:3190",
+    "build": "gulp; pulp build --to ./dist/index.js"
+  },
+  "author": "Evgeny Simonov",
+  "license": "MIT",
+  "dependencies": {
+    "express": "latest"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-purescript": "^2.0.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

@@ -1,0 +1,69 @@
+module App.Base.Autocomplete.Autocomplete where
+--   ( Store
+--   , State
+--   , autocomplete
+--   ) where
+--
+-- import Prelude ((>>=), bind, unit, pure)
+-- import Control.Monad.Eff (Eff)
+-- -- import Data.String (length)
+--
+-- import Sawmill.Store.Effect (St)
+-- import Sawmill.Store.State as S
+--
+-- import Sawmill.DOM.Effect (DOM)
+-- import Sawmill.DOM.HTML as D
+-- import Sawmill.BEM as BEM
+--
+-- bSelect :: String
+-- bSelect = BEM.b "autocomplete"
+-- eInput :: String
+-- eInput = BEM.e bSelect "input"
+-- mInputFocus :: String
+-- mInputFocus = BEM.m eInput "focus"
+-- eUnderline :: String
+-- eUnderline = BEM.e bSelect "underline"
+-- mUnderlineFocus :: String
+-- mUnderlineFocus = BEM.m eUnderline "focus"
+-- mUnderlineBlur :: String
+-- mUnderlineBlur = BEM.m eUnderline "blur"
+-- eDown :: String
+-- eDown = BEM.e bSelect "down"
+-- mDownFocus :: String
+-- mDownFocus = BEM.m eDown "focus"
+-- ePopup :: String
+-- ePopup = BEM.e bSelect "popup"
+-- mPopupFocus :: String
+-- mPopupFocus = BEM.m ePopup "focus"
+--
+-- type Store = { text :: String }
+-- type State = S.State Store
+--
+-- autocomplete :: forall eff. D.Element -> Eff (st :: St, dom :: DOM | eff) State
+-- autocomplete container = do
+--   state <- S.build { text: "" }
+--   autocompleteEl <- D.div >>= D.klass bSelect >>= D.append container
+--   inputEl <- D.inputtext >>= D.klass eInput >>= D.append autocompleteEl
+--   downEl <- D.div >>= D.klass eDown >>= D.append autocompleteEl
+--   popupEl <- D.div >>= D.klass ePopup >>= D.append autocompleteEl
+--   underlineEl <- D.div >>= D.klass eUnderline >>= D.append autocompleteEl
+--   _ <- D.input inputEl \_ -> do
+--     text <- D.getValue inputEl
+--     _ <- S.update state \value -> value { text = text }
+--     pure unit
+--   _ <- S.behavior state "localHandler" \value -> do
+--   -- TODO text and placeholder assign
+--     pure unit
+--   _ <- D.focus inputEl \_ -> do
+--     _ <- D.klass mUnderlineFocus underlineEl
+--     _ <- D.klass mInputFocus inputEl
+--     _ <- D.klass mDownFocus downEl
+--     _ <- D.klass mPopupFocus popupEl
+--     pure unit
+--   _ <- D.blur inputEl \_ -> do
+--     _ <- D.klass mUnderlineBlur underlineEl
+--     _ <- D.klass eInput inputEl
+--     _ <- D.klass eDown downEl
+--     _ <- D.klass ePopup popupEl
+--     pure unit
+--   pure state

@@ -1,0 +1,87 @@
+
+@import typography.vars
+@import colors.vars
+@import animation.vars
+@import animation
+
+@keyframes autocomplete-underline-focus
+  from
+    color: $primary-light
+    +animation-acceleration-curve
+  to
+    color: $secondory-color
+
+@keyframes autocomplete-underline-blur
+  from
+    color: $secondory-color
+    +animation-acceleration-curve
+  to
+    color: $primary-light
+
+.autocomplete
+  position: relative
+  height: 1.75em
+  min-width: 8em
+  border: none
+  background: transparent
+
+  &__input
+    position: absolute
+    height: 1.2em
+    line-height: 1.2em
+    top: 0.25em
+    left: 0
+    width: calc(100% - 1.7em)
+    color: $text-color-primary
+    background: transparent
+    outline: none
+    border: none
+    font-size: 1em
+
+    &--focus
+      z-index: 81
+
+  &__underline
+    background-color: $primary-light
+    width: 100%
+    position: absolute
+    height: 2px
+    bottom: 0
+    left: 0
+
+    &--focus
+      background-color: $secondory-color
+      animation: underline-focus $enter-duration
+      z-index: 81
+
+    &--blur
+      background-color: $primary-light
+      animation: underline-blur $leaving-duration
+
+  &__down
+    display: inline-block
+    position: absolute
+    width: 1.2em
+    height: 1.2em
+    top: 0.25em
+    right: 0.25em
+    background:
+      image: url(/images/expand-more.png)
+      size: cover
+
+    &--focus
+      z-index: 81
+
+  &__popup
+    display: none
+    height: 0
+    width: calc(100% + 1em)
+    position: absolute
+    top: 0
+    left: -0.5em
+
+    &--focus
+      z-index: 80
+      display: block
+      height: 12em
+      box-shadow: 0 0 0.5em $shadow-color

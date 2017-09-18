@@ -1,0 +1,100 @@
+
+@import typography.vars
+@import colors.vars
+@import animation.vars
+@import animation
+
+@keyframes textfield-label-focus
+  from
+    top: 0.75em
+    font-size: $font-size-one
+    color: $text-color-disabled
+    +animation-acceleration-curve
+  to
+    top: 0.125em
+    font-size: $font-size-mone
+    color: $text-color-secondary
+
+@keyframes textfield-label-blur
+  from
+    top: 0.125em
+    font-size: $font-size-mone
+    color: $text-color-secondary
+    +animation-acceleration-curve
+  to
+    top: 0.75em
+    font-size: $font-size-one
+    color: $text-color-disabled
+
+@keyframes textfield-underline-focus
+  from
+    width: 0
+    left: 50%
+    +animation-acceleration-curve
+  to
+    width: 100%
+    left: 0
+
+@keyframes textfield-underline-blur
+  from
+    width: 0
+    left: 50%
+    +animation-acceleration-curve
+  to
+    width: 100%
+    left: 0
+
+.textfield
+  position: relative
+  height: 3em
+  min-width: 8em
+
+  &__label
+    position: absolute
+    width: 100%
+    left: 0
+    top: 1.25em
+    font-size: 1em
+    color: $text-color-disabled
+
+    &--focus
+      top: 0.25em
+      font-size: $font-size-mone
+      color: $text-color-secondary
+      animation: textfield-label-focus ($enter-duration / 2)
+
+    &--blur
+      top: 1.25em
+      font-size: $font-size-one
+      color: $text-color-disabled
+      animation: textfield-label-blur ($leaving-duration / 2)
+
+
+  &__input
+    position: absolute
+    top: 1.5em
+    left: 0
+    color: $text-color-primary
+    width: 100%
+    height: 1.2em
+    line-height: 1.2em
+    background: transparent
+    outline: none
+    border: none
+    font-size: 1em
+
+  &__underline
+    background-color: $primary-light
+    width: 100%
+    position: absolute
+    height: 2px
+    bottom: 0
+    left: 0
+
+    &--focus
+      background-color: $secondory-color
+      animation: textfield-underline-focus $enter-duration
+
+    &--blur
+      background-color: $primary-light
+      animation: textfield-underline-blur $leaving-duration

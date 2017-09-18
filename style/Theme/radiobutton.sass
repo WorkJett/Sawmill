@@ -1,0 +1,84 @@
+
+$radiobutton-length: 2.5em
+$radiobutton-element-length: $radiobutton-length * 0.45
+
+$radiobutton-bg: rgba(33, 33, 33, 0)
+$radiobutton-bg-hover: rgba(33, 33, 33, 0.14)
+$radiobutton-bg-active: rgba(33, 33, 33, 0.28)
+
+.radiobutton
+  display: inline-block
+  position: relative
+  box-sizing: border-box
+  width: $radiobutton-length
+  height: $radiobutton-length
+  border-radius: 50%
+  background-color: $radiobutton-bg
+  transition: background-color 250ms linear
+
+  &--checked
+    cursor: pointer
+
+    &:hover
+      background-color: $radiobutton-bg-hover
+
+    &:active
+      background-color: $radiobutton-bg-active
+
+  &--unchecked
+    cursor: pointer
+
+    &:hover
+      background-color: $radiobutton-bg-hover
+
+    &:active
+      background-color: $radiobutton-bg-active
+
+  &--dischecked
+    cursor: not-allowed
+
+    &:hover
+      background-color: $radiobutton-bg-hover
+
+  &--disunchecked
+    cursor: not-allowed
+
+    &:hover
+      background-color: $radiobutton-bg-hover
+
+  &__view
+    position: absolute
+    top: ($radiobutton-length - $radiobutton-element-length) / 2
+    left: ($radiobutton-length - $radiobutton-element-length) / 2
+    box-sizing: border-box
+    width: $radiobutton-element-length
+    height: $radiobutton-element-length
+    background-size: cover
+
+    &--checked
+      cursor: pointer
+      background-image: url(/images/radio-on.png)
+
+    &--unchecked
+      cursor: pointer
+      background-image: url(/images/radio-off.png)
+
+    &--dischecked
+      cursor: not-allowed
+      background-image: url(/images/radio-disabled-on.png)
+
+    &--disunchecked
+      cursor: not-allowed
+      background-image: url(/images/radio-disabled-off.png)
+
+  // &__input
+  //   position: absolute
+  //   top: ($radiobutton-length - $radiobutton-element-length) / 2
+  //   left: ($radiobutton-length - $radiobutton-element-length) / 2
+  //   box-sizing: border-box
+  //   width: $radiobutton-element-length
+  //   height: $radiobutton-element-length
+  //   margin: 0
+  //   padding: 0
+  //   border: none
+  //   opacity: 0

@@ -1,0 +1,139 @@
+
+@import typography.vars
+@import colors.vars
+@import animation.vars
+@import animation
+
+$multiselect-button-length: 2.5em
+$multiselect-button-icon-length: $multiselect-button-length * 0.45
+
+$multiselect-button-bg: rgba(33, 33, 33, 0)
+$multiselect-button-bg-hover: rgba(33, 33, 33, 0.14)
+
+=multiselect-button
+  display: inline-block
+  position: absolute
+  top: 0.25em
+  right: 0.25em
+  width: $multiselect-button-length
+  height: $multiselect-button-length
+  border-radius: 50%
+  cursor: pointer
+  background-color: $multiselect-button-bg
+  transition: background-color 250ms linear
+
+  &:hover
+    background-color: $multiselect-button-bg-hover
+
+=multiselect-icon
+  position: absolute
+  top: ($multiselect-button-length - $multiselect-button-icon-length) / 2
+  left: ($multiselect-button-length - $multiselect-button-icon-length) / 2
+  box-sizing: border-box
+  cursor: pointer
+  width: $multiselect-button-icon-length
+  height: $multiselect-button-icon-length
+  background-size: cover
+
+=multiselect-label
+  display: inline-block
+  position: absolute
+  left: 0.5em
+  top: 0.25em
+  height: 2.5em
+  line-height: 2.5
+  font-size: 1em
+  color: $text-color-secondary
+
+.multiselect
+  margin: 1em 0
+  position: relative
+  min-height: 3em
+  min-width: 8em
+  border: none
+  background: transparent
+
+  &__label
+    +multiselect-label
+
+  &__button
+    +multiselect-button
+
+  &__icon
+    +multiselect-icon
+    background-image: url(/images/list_add.png)
+
+  &__items
+    position: absolute
+    width: 100%
+    top: 3em
+    left: 0
+
+  &__listitem
+    position: relative
+    height: 2.5em
+    line-height: 2.5em
+
+  &__listitem-button
+    +multiselect-button
+
+  &__listitem-icon
+    +multiselect-icon
+    background-image: url(/images/delete.png)
+
+  &__listitem-label
+    display: inline-block
+    padding-left: 0.5em
+    vertical-align: top
+
+  &__popup
+    display: none
+    background-color: $wnd-bg-content-color
+    height: 0
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    overflow: hidden
+    padding-bottom: 0.25em
+
+    &--open
+      z-index: 80
+      display: block
+      height: auto
+      box-shadow: 0 0 0.5em $shadow-color
+
+  &__popup-label
+    +multiselect-label
+
+  &__popup-button
+    +multiselect-button
+
+  &__popup-icon
+    background-image: url(/images/list_confirm.png)
+    +multiselect-icon
+
+  &__popup-items
+    margin-top: 3em
+
+  &__popup-item
+    height: 2.5em
+    line-height: 2.5em
+    padding-left: 0.25em
+    position: relative
+
+  &__popup-item-checkbox
+    display: inline-block
+    position: absolute
+    top: 0
+    right: 0.25em
+
+  &__popup-item-label
+    vertical-align: top
+    cursor: pointer
+    padding-left: 0.5em
+    width: calc(100% - 3em)
+    transition: background-color 250ms linear
+
+    &:hover
+      background-color: $multiselect-button-bg-hover

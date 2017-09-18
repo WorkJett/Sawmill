@@ -1,0 +1,51 @@
+// modals mixins
+
+@import elevation.vars
+@import colors.vars
+@import animation.vars
+@import animation
+
+=modal($width, $height)
+  position: fixed
+  z-index: $z-modal
+  box-shadow: 0 0 1em $shadow-color
+  background-color: $wnd-bg-content-color
+  width: $width
+  height: $height
+  top: 50%
+  left: 50%
+  margin-left: - $width / 2
+  margin-top: - $height / 2
+  padding: 1em
+  border-radius: 4px
+
+=modal-sm
+  +modal(16em, 12em)
+
+=modal-md
+  +modal(24em, 18em)
+
+=modal-lg
+  +modal(32em, 24em)
+
+@keyframes show-modal
+  from
+    opacity: 0.5
+    transform: scaleX(0.5)
+    +animation-deceleration-curve
+  to
+    opacity: 1
+    transform: scaleX(1)
+
+@keyframes hide-modal
+  from
+    transform: scaleX(0)
+    +animation-acceleration-curve
+  to
+    transform: scaleX(1)
+
+=modal-show
+  animation: show-modal $enter-duration
+
+=modal-hide
+  animation: hide-modal $leaving-duration
